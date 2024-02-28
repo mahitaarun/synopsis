@@ -1,0 +1,7 @@
+*****setup python virtual env /home/asrinivasan/synopsis dir****
+sudo apt update
+sudo apt install python3-virtualenv
+python3 -m venv venv
+source venv/bin/activate
+i2cdetect -y 1
+

@@ -1,0 +1,9 @@
+--trusted-host pypi.org
+--trusted-host files.pythonhosted.org
+
+setuptools
+requests
+flask
+prometheus_client
+timeout-decorator
+prometheus-flask-exporter
