@@ -7,8 +7,13 @@ from prometheus_client import CollectorRegistry, Gauge, push_to_gateway
 import RPi.GPIO as GPIO
 from w1thermsensor import W1ThermSensor, Unit
 import csv
+import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False) #disable annoying warning messages
+GPIO.setup(17,GPIO.OUT)
 
-
+#initially is off
+#GPIO.output(7,GPIO.LOW)
 
 ADS1115_REG_CONFIG_PGA_6_144V        = 0x00 # 6.144V range = Gain 2/3
 ADS1115_REG_CONFIG_PGA_4_096V        = 0x02 # 4.096V range = Gain 1
@@ -109,4 +114,6 @@ while True :
         writer.writerow([temperature, percentage_A4])
     
     print("Program continues...")
+    GPIO.output(17,GPIO.HIGH)
     time.sleep(1)
+    GPIO.output(17,GPIO.LOW)
